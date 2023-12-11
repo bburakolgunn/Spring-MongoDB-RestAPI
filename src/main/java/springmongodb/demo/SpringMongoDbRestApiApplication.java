@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
 @SpringBootApplication
-//@EnableMongoRepositories //Bu projede kullanılan MongoRepository enable etmemiz için kullanırız.
+@EnableMongoRepositories //Bu projede kullanılan MongoRepository enable etmemiz için kullanırız.
 public class SpringMongoDbRestApiApplication {
 
 	public static void main(String[] args) {
