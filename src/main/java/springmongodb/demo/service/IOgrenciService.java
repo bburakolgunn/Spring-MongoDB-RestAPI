@@ -14,6 +14,8 @@ public interface IOgrenciService {
 
     Ogrenci update(Ogrenci ogrenci);
 
-    Boolean delete(Long id);
 
+
+
+    Ogrenci delete(Ogrenci ogrenci);
 }

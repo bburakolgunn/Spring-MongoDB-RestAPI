@@ -29,11 +29,27 @@ public class KullaniciController {
         return  new ResponseEntity<>(ogrenciListesi, HttpStatus.OK);
     }
 
+
+
+
+
     @PostMapping("/ogrenciKaydet")
         public ResponseEntity<Ogrenci> kaydet(@Validated @RequestBody Ogrenci ogrenci){
         Ogrenci kaydedilenKullanici = iOgrenciService.save(ogrenci);
         return new ResponseEntity<>(kaydedilenKullanici,HttpStatus.OK);
     }
+
+    @DeleteMapping("/{okulNo}")
+    public ResponseEntity<Void> delete(@PathVariable String okulNo){
+        iOgrenciService.delete(okulNo);
+
+        return  new ResponseEntity<>(HttpStatus.OK);
+    }
+
+
+
+
+
 
     }
 

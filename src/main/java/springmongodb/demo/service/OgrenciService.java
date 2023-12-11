@@ -12,10 +12,12 @@ import java.util.Optional;
 public class OgrenciService implements IOgrenciService {
 
 
+    private  final OgrenciRepository ogrenciRepository;
+
     @Autowired
-    private OgrenciRepository ogrenciRepository;
-
-
+    public OgrenciService(OgrenciRepository ogrenciRepository) {
+        this.ogrenciRepository = ogrenciRepository;
+    }
 
     @Override
     public List<Ogrenci> getAll() {
@@ -55,14 +57,19 @@ public class OgrenciService implements IOgrenciService {
         guncellemeOgrenci.setSoyadi(ogrenci.getSoyadi());
         guncellemeOgrenci.setVelininAdı(ogrenci.getVelininAdı());
         guncellemeOgrenci.setTelno(ogrenci.getTelno());
+        guncellemeOgrenci.setSinif(ogrenci.getSinif());
+        guncellemeOgrenci.setDersler(ogrenci.getDersler());
         Ogrenci guncellenmisOgrenci = ogrenciRepository.save(guncellemeOgrenci);
         return guncellenmisOgrenci;
 
     }
 
     @Override
-    public Boolean delete(Long id) {
-        ogrenciRepository.deleteById(id);
-        return  true;
+    public Ogrenci delete(Ogrenci ogrenci) {
+       Ogrenci ogrenciSilinen = ogrenciRepository.delete;
+        return ogrenciSilinen;
     }
+
+
+
 }

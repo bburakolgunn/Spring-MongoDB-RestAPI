@@ -13,5 +13,4 @@ public interface OgrenciRepository extends MongoRepository<Ogrenci,Long> {
 
 
 
-
 }
