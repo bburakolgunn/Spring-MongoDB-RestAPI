@@ -42,8 +42,8 @@ public class OgrenciService implements IOgrenciService {
        //insert into Kullanici
         Ogrenci ogrenciKaydedilen = ogrenciRepository.save(ogrenci);
         return ogrenciKaydedilen;
-
     }
+
 
     @Override
     public Ogrenci update(Ogrenci ogrenci) {
@@ -65,14 +65,12 @@ public class OgrenciService implements IOgrenciService {
 
     @Override
     public Ogrenci delete(Long okulNo) {
-        Optional<Ogrenci> ogrenciOptional = ogrenciRepository.findByOkulNo(okulNo);
-
-        if (ogrenciOptional.isPresent()) {
-            ogrenciRepository.deleteByOkulNo(okulNo);
-            return ogrenciOptional.get();
-        } else {
-            return null;
-        }
+        return ogrenciRepository.findByOkulNo(okulNo)
+                .map(ogrenci -> {
+                    ogrenciRepository.deleteByOkulNo(okulNo);
+                    return ogrenci;
+                })
+                .orElse(null);  //istediğiniz bir değeri döndürebilirsiniz
     }
 
 
