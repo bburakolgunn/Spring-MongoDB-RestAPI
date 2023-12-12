@@ -20,8 +20,7 @@ public class Ogrenci {
     List<String> dersler = new ArrayList<>();
 
     @Id
-    private Long id;
-    private String okulNo;
+    private Long okulNo;
     private String adi;
     private String soyadi;
     private String velininAdı;
@@ -33,9 +32,8 @@ public class Ogrenci {
     public Ogrenci() {
     }
 
-    public Ogrenci(List<String> dersler, Long id, String okulNo, String adi, String soyadi, String velininAdı, String telno, String sinif) {
+    public Ogrenci(List<String> dersler, Long okulNo, String adi, String soyadi, String velininAdı, String telno, String sinif) {
         this.dersler = dersler;
-        this.id = id;
         this.okulNo = okulNo;
         this.adi = adi;
         this.soyadi = soyadi;
@@ -52,19 +50,11 @@ public class Ogrenci {
         this.dersler = dersler;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getOkulNo() {
+    public Long getOkulNo() {
         return okulNo;
     }
 
-    public void setOkulNo(String okulNo) {
+    public void setOkulNo(Long okulNo) {
         this.okulNo = okulNo;
     }
 

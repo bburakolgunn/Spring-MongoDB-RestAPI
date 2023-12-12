@@ -40,10 +40,9 @@ public class KullaniciController {
     }
 
     @DeleteMapping("/{okulNo}")
-    public ResponseEntity<Void> delete(@PathVariable String okulNo){
-        iOgrenciService.delete(okulNo);
-
-        return  new ResponseEntity<>(HttpStatus.OK);
+    public ResponseEntity<Ogrenci> deleteOgrenci(@PathVariable long okulNo){
+        Ogrenci silinenOgrenci = iOgrenciService.delete(okulNo);
+        return  new ResponseEntity<>(silinenOgrenci,HttpStatus.OK);
     }
 
 

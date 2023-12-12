@@ -8,14 +8,14 @@ import java.util.List;
 public interface IOgrenciService {
     List<Ogrenci> getAll();
 
-    Ogrenci getById(Long id);
+    Ogrenci getById(Long okulNo);
 
     Ogrenci save(Ogrenci ogrenci);
 
     Ogrenci update(Ogrenci ogrenci);
 
 
+    Ogrenci delete(Long okulNo);
 
 
-    Ogrenci delete(Ogrenci ogrenci);
 }

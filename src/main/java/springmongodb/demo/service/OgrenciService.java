@@ -47,11 +47,10 @@ public class OgrenciService implements IOgrenciService {
 
     @Override
     public Ogrenci update(Ogrenci ogrenci) {
-        Optional<Ogrenci> optionalOgrenci = ogrenciRepository.findById(ogrenci.getId());
+        Optional<Ogrenci> optionalOgrenci = ogrenciRepository.findById(ogrenci.getOkulNo());
         Ogrenci guncellemeOgrenci = optionalOgrenci.orElse(null);
 
         // Kullanici bulunamadıysa null döndür
-        guncellemeOgrenci.setId(ogrenci.getId());
         guncellemeOgrenci.setOkulNo(ogrenci.getOkulNo());
         guncellemeOgrenci.setAdi(ogrenci.getAdi());
         guncellemeOgrenci.setSoyadi(ogrenci.getSoyadi());
@@ -65,11 +64,20 @@ public class OgrenciService implements IOgrenciService {
     }
 
     @Override
-    public Ogrenci delete(Ogrenci ogrenci) {
-       Ogrenci ogrenciSilinen = ogrenciRepository.delete;
-        return ogrenciSilinen;
+    public Ogrenci delete(Long okulNo) {
+        Optional<Ogrenci> ogrenciOptional = ogrenciRepository.findByOkulNo(okulNo);
+
+        if (ogrenciOptional.isPresent()) {
+            ogrenciRepository.deleteByOkulNo(okulNo);
+            return ogrenciOptional.get();
+        } else {
+            return null;
+        }
     }
 
 
-
 }
+
+
+
+
